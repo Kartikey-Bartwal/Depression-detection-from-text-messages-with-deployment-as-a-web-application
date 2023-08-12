@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Background animation */
+
+body {
+    min-height: 100vh;
+    background: #0c192c;
+    overflow: hidden;
+    /* Prevent scrollbars caused by animation */
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Place it behind the content */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles {
+    position: relative;
+    display: flex;
+}
+
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(100s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background: #e81c1c;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #ed2a0c, 0 0 100px #e31c15;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translate(-10vh) scale(1);
+    }
+}
+
+
+/* Displaying Headlines */
+
+.navbar {
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 2vh;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Animation */
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes changeFact {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+
+/* Pie chart container */
+
+.chart-container {
+    position: relative;
+    z-index: 1;
+    /* Place it above the background animation */
+}
+
+.pie-chart {
+    /* Adjust the positioning of the pie chart as needed */
+    position: absolute;
+    margin-top: 10%;
+    top: 40%;
+    left: 5%;
+    width: 30%;
+    height: 40%;
+}

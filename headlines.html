@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Input Box</title>
+    <link rel="stylesheet" href="headlines.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Pie Chart for Web Development</h1>
+        <div>
+            <canvas id="pie-chart"></canvas>
+        </div>
+    </div>
+    <script>
+        new Chart(document.getElementById('pie-chart'), {
+            type: 'pie',
+            data: {
+                labels: ["Depressed", "Not Depressed"],
+                datasets: [{
+                    backgroundColor: ["#808080", "#326998"],
+                    data: [76, 24]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Pie Chart for admin panel'
+                },
+                responsive: true
+            }
+        });
+    </script>
+</body>
+
+</html>

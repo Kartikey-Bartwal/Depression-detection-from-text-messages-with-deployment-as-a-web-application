@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+
+<body>
+    <!-- Background -->
+    <header>
+        <div class="container">
+            <div class="bubbles">
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:20;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:28;"></span>
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:20;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:28;"></span>
+            </div>
+        </div>
+
+        <!-- Display Headlines for depression -->
+        <nav class="navbar">
+            <h1 id="factDisplay"></h1>
+        </nav>
+    </header>
+
+
+    <!-- AI text box -->
+    <div class="textDisplayBox">
+        <p id="typing-text"></p>
+    </div>
+
+    <!-- Input Box -->
+    <form action="outputpage.html" method="GET">
+        <div class="input-box">
+            <input type="text" id="input-text" name="text" placeholder="Enter your text">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+
+    <!--depressed guy gif-->
+    <div class="content-container">
+        <div class="depressed-guy">
+            <img src="depressed guy.gif" alt="Your GIF" id="depressed_guy">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href="https://www.instagram.com/your-instagram-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/your-github-profile" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="FooterBottom">
+                <p>Copyright &copy; 2023; Kartikey Bartwal</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+<script>
+    // AI Textbox
+    const textToType = `Emotionally trained on thousands of Reddit posts, this cutting-edge AI delves deep into human sentiments. Embrace its adaptability, decode sarcasm, and witness its mind-blowing accuracy. Step into an extraordinary journey of understanding mental health like never before. Try it now! `;
+
+    const typingDelay = 50; // Adjust typing speed (lower value = faster)
+
+    let i = 0;
+
+    function typeText() {
+        if (i < textToType.length) {
+            document.getElementById("typing-text").innerHTML += textToType.charAt(i);
+            i++;
+            setTimeout(typeText, typingDelay);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        typeText();
+        setTimeout(() => {
+            document.querySelector(".cursor").style.display = "none"; // Hide the cursor when typing is complete
+        }, textToType.length * typingDelay); // Adjust this to make the cursor disappear after the typing is finished
+    });
+
+
+    // Display Headlines
+    const factDisplay = document.getElementById("factDisplay");
+    const facts = [
+        "Depression is a common mental health disorder that affects millions of people worldwide",
+        "It can affect people of all ages, genders, and backgrounds",
+        "Depression is characterized by persistent feelings of sadness, hopelessness, and loss of interest or pleasure in activities",
+        "It is more than just feeling sad occasionally; it can interfere with daily life and activities",
+        "Depression is often accompanied by physical symptoms like changes in appetite, sleep disturbances, and fatigue",
+        "There are different types of depression, including major depressive disorder, persistent depressive disorder, and seasonal affective disorder, among others",
+    ];
+
+    let factIndex = 0;
+
+    function displayNextFact() {
+        factDisplay.style.animation = "changeFact 2s";
+        setTimeout(() => {
+            factDisplay.textContent = facts[factIndex];
+            factDisplay.style.animation = "fadeInOut 4s";
+            factIndex = (factIndex + 1) % facts.length;
+        }, 2000);
+    }
+
+    displayNextFact();
+    setInterval(displayNextFact, 8000); // Change fact every 8 seconds'
+
+
+
+    // Sumbit button
+    // Add event listener to the "Submit" button
+    document.getElementById("submit-button").addEventListener("click", function() {
+        // Get the text from the input field
+        var inputText = document.getElementById("input-text").value;
+
+        // Encode the input text and redirect to "outputpage.html" on your local PC
+        window.location.href = "file:///path/to/your/outputpage.html?text=" + encodeURIComponent(inputText);
+    });
+</script>
+
+</html>
