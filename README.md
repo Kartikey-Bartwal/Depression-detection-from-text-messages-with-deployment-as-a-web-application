@@ -1,0 +1,2 @@
+# Depression-detection-from-text-messages-with-deployment-as-a-web-application
+Depression leaves footprints. My this model takes depression classifier model was trained on 7000 reddit posts. This NLP model takes input text messages of anyone and can diagnose depression with remarkable level of accuracy. An upgrade is currently in progress but until then you can enjoy the wonders of this Natural Language Processing model. 
